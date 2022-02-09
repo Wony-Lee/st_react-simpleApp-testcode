@@ -15,6 +15,13 @@ test("display product images from server", async () => {
     expect(altText).toEqual(['America product', 'England product'])
 })
 
+test("fetch option informatiln from server", async () => {
+    render(<Type orderType="options" />)
+
+    const optionCheckboxes = await screen.findAllByRole('checkbox');
+    expect(optionCheckboxes).toHaveLength(2)
+})
+
 test("when fetching product datas, face an error", async () => {
     server.resetHandlers(
         rest.get('http://localhost:5000/products', (req, res, ctx) =>
