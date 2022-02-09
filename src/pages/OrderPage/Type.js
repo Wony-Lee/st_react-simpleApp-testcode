@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import Products from './Products'
-import { ErrorBanner } from '../../components/ErrorBanner';
+import ErrorBanner from '../../components/ErrorBanner';
 
 const Type = ({ orderType }) => {
     const [items, setItems] = useState([])
     const [error, setError] = useState(false)
     useEffect(() => {
         loadItems(orderType)
-    }, [])
+    }, [orderType])
     const loadItems = async (orderType) => {
         try {
-            const response = await axios.get(`http://localhost:5000/${orderType}`)
+            let response = await axios.get(`http://localhost:5000/${orderType}`)
             setItems(response.data);
         } catch (e) {
-            console.error(e);
             setError(true)
         }
     }

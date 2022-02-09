@@ -5,12 +5,12 @@ export const handlers = [
         return res(
             ctx.json([
                 {
-                    "name": "America",
-                    "imagePath": "/images/america.jpeg"
+                    name: "America",
+                    imagePath: "/images/america.jpeg"
                 },
                 {
-                    "name": "England",
-                    "imagePath": "/images/england.jpeg"
+                    name: "England",
+                    imagePath: "/images/england.jpeg"
                 }
             ])
         )
@@ -19,7 +19,7 @@ export const handlers = [
         return res(
             ctx.json([
                 {
-                    "name": "Insurance"
+                    name: "Insurance"
                 },
                 {
                     name: "Dinner"

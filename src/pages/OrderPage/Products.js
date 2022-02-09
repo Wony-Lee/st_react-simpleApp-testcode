@@ -5,7 +5,7 @@ const Products = ({ name, imagePath }) => {
         <div style={{ textAlign: 'center' }}>
             <img
                 style={{ width: '75%' }}
-                src={`http://localhost:5000/${imagePath}`}
+                src={`http://localhost:5000${imagePath}`}
                 alt={`${name} product`}
             />
             <form style={{ marginTop: '10px' }}>
@@ -16,6 +16,7 @@ const Products = ({ name, imagePath }) => {
                     type="number"
                     name="quantity"
                     min="0"
+                    defaultValue={0}
                 />
             </form>
         </div>
