@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react';
+import { userEvnet } from '@testing-library/user-event';
 
 test("update product's total when products change", async () => {
     render(<Type orderType="products" />);
