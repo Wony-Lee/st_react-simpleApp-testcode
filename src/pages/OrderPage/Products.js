@@ -9,7 +9,7 @@ const Products = ({ name, imagePath, updateItemCount }) => {
         <div style={{ textAlign: 'center' }}>
             <img
                 style={{ width: '75%' }}
-                src={`http://localhost:5000${imagePath}`}
+                src={`http://localhost:6000${imagePath}`}
                 alt={`${name} product`}
             />
             <form style={{ marginTop: '10px' }}>
