@@ -24,7 +24,7 @@ test("fetch option informatiln from server", async () => {
 
 test("when fetching product datas, face an error", async () => {
     server.resetHandlers(
-        rest.get('http://localhost:5000/products', (req, res, ctx) =>
+        rest.get('http://localhost:6000/products', (req, res, ctx) =>
             res(ctx.status(500))
         )
     )
