@@ -20,7 +20,12 @@ export function OrderContextProvider(props) {
         products: new Map(),
         options: new Map()
     })
-
+    const resetOrderDatas = () => {
+        setOrderCounts({
+            products: new Map(),
+            options: new Map()
+        })
+    }
     const [totals, setTotals] = useState({
         products: 0,
         options: 0,
@@ -44,7 +49,7 @@ export function OrderContextProvider(props) {
             orderCountsMap.set(itemName, parseInt(newItemCount))
             setOrderCounts(newOrderCounts)
         }
-        return [{ ...orderCounts, totals }, updateItemCount]
+        return [{ ...orderCounts, totals }, updateItemCount, resetOrderDatas]
     }, [orderCounts, totals])
     return <OrderContext.Provider value={value} {...props} />
 }

@@ -3,10 +3,11 @@ import axios from 'axios'
 
 import { OrderContext } from '../../contexts/OrderContext';
 import ErrorBanner from '../../components/ErrorBanner';
+import { useCallback } from 'react';
 
 const CompletePage = ({ setStep }) => {
 
-    const [orderDatas] = useContext(OrderContext)
+    const [orderDatas, , resetOrderDatas] = useContext(OrderContext)
     const [orderHistory, setOrderHistory] = useState([])
     const [loading, setLoading] = useState(true)
     const [error, setError] = useState(false)
@@ -24,7 +25,10 @@ const CompletePage = ({ setStep }) => {
             console.error(e)
         }
     }
-
+    const handleLocation = useCallback(() => {
+        resetOrderDatas();
+        setStep(0)
+    }, [])
     if (error) {
         return <ErrorBanner message="에러가 발생했습니다." />
     }
@@ -56,7 +60,7 @@ const CompletePage = ({ setStep }) => {
                     </tbody>
                 </table>
 
-                <button onClick={() => setStep(0)}>
+                <button onClick={handleLocation}>
                     첫페이지로
                 </button>
             </div>
