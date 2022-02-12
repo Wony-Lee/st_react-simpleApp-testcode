@@ -21,8 +21,6 @@ function App() {
         {
           step === 2 && <CompletePage setStep={setStep} />
         }
-
-
       </OrderContextProvider>
     </div>
   );

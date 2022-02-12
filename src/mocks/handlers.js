@@ -1,7 +1,7 @@
 import { rest } from 'msw';
 
 export const handlers = [
-    rest.get('http://localhost:6000/products', (req, res, ctx) => {
+    rest.get('http://localhost:3333/products', (req, res, ctx) => {
         return res(
             ctx.json([
                 {
@@ -15,7 +15,7 @@ export const handlers = [
             ])
         )
     }),
-    rest.get('http://localhost:6000/options', (req, res, ctx) => {
+    rest.get('http://localhost:3333/options', (req, res, ctx) => {
         return res(
             ctx.json([
                 {
@@ -26,5 +26,9 @@ export const handlers = [
                 }
             ])
         )
+    }),
+    rest.post('http://localhost:3333/order', (req, res, ctx) => {
+        let dummyDate = [{ orderNumber: 213, price: 2000 }];
+        return res(ctx.json(dummyDate))
     })
 ]
